@@ -1,13 +1,22 @@
 ## These functions allow to cache the inverse of a matrix (calculated by solve()), makeCacheMatrix cache the result of a matrix inverstion
 # and cacheSolve return the inverse of a matrix. If the matrix was previously inverted than the cached version is returned saving computation time
 
+# the code assume that the matrix will only be changed through using the "set" function
+#example to run:
+# x <- matrix(rnorm(16),4,4)
+# cachedx<-makeCacheMatrix(x)
+# cacheSolve(cachedx)
+# ....show inverse of X
+# cacheSolve(cachedx)
+# ....show CACHED inverse of X
+# x[1,1] <- x[1,1]/2   #we change x
 
-#NOTE ON THE CURRENT  SUBMISSION: 
-#the current submission follows the same pattern of the example given in assignement 2 (makeVector and cachemean) and seems to work
-#HOWEVER: one know issue with it is that if the matrix change I need to find a way to remove the cached value so that a new one can be calculated . This is work in progress. 
+#Now must set again (because x changed)
+#cachedx$set(x)
+#cacheSolve(cachedx)
+#...NEW inverse calculated
 
 
-## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
     m <- NULL
